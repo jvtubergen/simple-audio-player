@@ -3,6 +3,9 @@ use web_audio_api::node::{AudioNode, AudioScheduledSourceNode};
 
 use clap::Parser;
 use std::error::Error;
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::Arc;
+use std::time::Duration;
 
 #[derive(Parser, Debug)] // requires `derive` feature
 #[command(term_width = 0)] // Just to make testing across clap features easier
@@ -41,8 +44,21 @@ fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
     // play the buffer
     src.start();
 
-    // enjoy listening
-    std::thread::sleep(std::time::Duration::from_secs_f64(duration));
+
+    // track audio playback is done
+    let is_ended =  Arc::new(AtomicBool::new(false));
+    let _is_ended = is_ended.clone();
+    src.set_onended(move |event| {
+        is_ended.store(true, Ordering::Relaxed);
+    });
+
+    // playback till done
+    loop {
+        std::thread::sleep(Duration::from_millis(100));
+        if _is_ended.load(Ordering::Relaxed) {
+            break;
+        }
+    }
 
     Ok(())
 }
