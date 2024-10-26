@@ -33,7 +33,6 @@ fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
 
     // setup an AudioBufferSourceNode
     let mut src = context.create_buffer_source();
-    let duration = buffer.duration();
     src.set_buffer(buffer);
     src.set_loop(false);
 
@@ -47,7 +46,7 @@ fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
     // track audio playback is done
     let is_ended =  Arc::new(AtomicBool::new(false));
     let _is_ended = is_ended.clone();
-    src.set_onended(move |event| {
+    src.set_onended(move |_| {
         is_ended.store(true, Ordering::Relaxed);
     });
 
