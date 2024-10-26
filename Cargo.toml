@@ -1,9 +1,12 @@
 [package]
 name = "simple-audio-player"
+description = "Minimal binary to play audio via the web-audio-api."
 version = "0.1.0"
 edition = "2021"
 author = { name = "jvtubergen", email = "jvtubergen@pm.me" }
 rust-version = "1.74.1"
+repository = "https://github.com/jvtubergen/simple-audio-player"
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 clap = { version = "4.5.15", features = ["default", "unstable-doc"] }   
