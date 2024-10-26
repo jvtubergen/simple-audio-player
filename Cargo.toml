@@ -2,7 +2,7 @@
 name = "simple-audio-player"
 description = "Minimal audio player to play arbitrary sound files instantly from the terminal."
 readme = "Readme.md"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
 author = { name = "jvtubergen", email = "jvtubergen@pm.me" }
 rust-version = "1.74.1"
