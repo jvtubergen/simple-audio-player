@@ -1,4 +1,4 @@
-use web_audio_api::context::{AudioContext, BaseAudioContext};
+use web_audio_api::context::{AudioContext, AudioContextLatencyCategory, AudioContextOptions, BaseAudioContext};
 use web_audio_api::node::{AudioNode, AudioScheduledSourceNode};
 
 use clap::Parser;
@@ -25,7 +25,11 @@ fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
     let audio_file_path = args.file.unwrap();
 
     // set up the audio context with optimized settings for your hardware
-    let context = AudioContext::default();
+    let context = AudioContext::new(AudioContextOptions {
+        // Latency hinting at playback solves crackling due to potential buffer underrun. 
+        latency_hint: AudioContextLatencyCategory::Playback,
+        ..Default::default()
+    });
 
     // for background music, read from local file
     let file = std::fs::File::open(audio_file_path)?;
