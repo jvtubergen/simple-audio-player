@@ -3,6 +3,7 @@ name = "simple-audio-player"
 version = "0.1.0"
 edition = "2021"
 author = { name = "jvtubergen", email = "jvtubergen@pm.me" }
+rust-version = "1.74.1"
 
 [dependencies]
 clap = { version = "4.5.15", features = ["default", "unstable-doc"] }   
