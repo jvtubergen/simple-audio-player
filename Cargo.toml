@@ -2,9 +2,8 @@
 name = "simple-audio-player"
 version = "0.1.0"
 edition = "2021"
-author = { name = "jvtub", email = "jvtub@pm.me" }
+author = { name = "jvtubergen", email = "jvtubergen@pm.me" }
 
 [dependencies]
 clap = { version = "4.5.15", features = ["default", "unstable-doc"] }   
-egui = "0.28.1"
 web-audio-api = "0.45.2"
