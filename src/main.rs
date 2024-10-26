@@ -12,8 +12,7 @@ use std::time::Duration;
 struct Args {
 
     /// Audio file path.
-    /// (Allow invalid UTF-8 paths)
-    #[arg(long, short, required = true, value_name = "FILE-PATH", value_hint = clap::ValueHint::DirPath)]
+    #[arg(required = true, value_name = "Audio file-path", value_hint = clap::ValueHint::DirPath)]
     file: Option<std::path::PathBuf>,
 
 }
