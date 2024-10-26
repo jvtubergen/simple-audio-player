@@ -1,6 +1,7 @@
 [package]
 name = "simple-audio-player"
-description = "Minimal binary to play audio via the web-audio-api."
+description = "Minimal audio player to play arbitrary sound files instantly from the terminal."
+readme = "Readme.md"
 version = "0.1.0"
 edition = "2021"
 author = { name = "jvtubergen", email = "jvtubergen@pm.me" }

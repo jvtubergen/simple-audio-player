@@ -1,8 +1,10 @@
 # Simple Audio Player
-Minimal audio player to play arbitrary sound files fast.
+Minimal audio player to play arbitrary sound files instantly from the terminal.
 
-Goals: 
-* On file opening play instantly (wait less than half a second).
+``` bash
+# Install the application.
+cargo install simple-audio-player
 
-Non-goals:
-* Sound file editing
+# Play a song.
+simple-audio-player song.mp3
+```
